@@ -1,0 +1,31 @@
+﻿@page "{id:int}"
+@model DetailsModel
+@{
+    ViewData["Title"] = Model.Book?.Title ?? "Книга не найдена";
+}
+
+@if (Model.Book == null)
+{
+    <h2>Книга с таким ID не найдена</h2>
+    <a asp-page="/Index">← Вернуться к списку</a>
+}
+else
+{
+    <h1>@Model.Book.Title</h1>
+
+    <dl>
+        <dt>Автор</dt>
+        <dd>@Model.Book.Author.FullName</dd>
+
+        <dt>Стиль</dt>
+        <dd>@Model.Book.Style.Name</dd>
+
+        <dt>Издательство</dt>
+        <dd>@Model.Book.Publisher.Name</dd>
+
+        <dt>Год издания</dt>
+        <dd>@Model.Book.Year</dd>
+    </dl>
+
+    <a asp-page="/Index">← Назад к списку</a>
+}
