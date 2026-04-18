@@ -1,0 +1,54 @@
+﻿@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Добавить книгу";
+}
+
+<h1>Добавить новую книгу</h1>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Book.Title" class="form-label"></label>
+        <input asp-for="Book.Title" class="form-control" />
+        <span asp-validation-for="Book.Title" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Book.AuthorId" class="form-label">Автор</label>
+        <select asp-for="Book.AuthorId" class="form-select" asp-items="Model.AuthorsList">
+            <option value="">-- Выберите автора --</option>
+        </select>
+        <span asp-validation-for="Book.AuthorId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Book.StyleId" class="form-label">Стиль</label>
+        <select asp-for="Book.StyleId" class="form-select" asp-items="Model.StylesList">
+            <option value="">-- Выберите стиль --</option>
+        </select>
+        <span asp-validation-for="Book.StyleId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Book.PublisherId" class="form-label">Издательство</label>
+        <select asp-for="Book.PublisherId" class="form-select" asp-items="Model.PublishersList">
+            <option value="">-- Выберите издательство --</option>
+        </select>
+        <span asp-validation-for="Book.PublisherId" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Book.Year" class="form-label"></label>
+        <input asp-for="Book.Year" class="form-control" />
+        <span asp-validation-for="Book.Year" class="text-danger"></span>
+    </div>
+
+    <button type="submit">Добавить</button>
+    <a asp-page="./Index"><button type="button">Отмена</button></a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

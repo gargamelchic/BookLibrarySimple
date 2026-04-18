@@ -7,7 +7,7 @@
 @if (Model.Book == null)
 {
     <h2>Книга с таким ID не найдена</h2>
-    <a asp-page="/Index">← Вернуться к списку</a>
+    <a asp-page="/Index"><button type="button">Вернуться к списку</button></a>
 }
 else
 {
@@ -27,5 +27,5 @@ else
         <dd>@Model.Book.Year</dd>
     </dl>
 
-    <a asp-page="/Index">← Назад к списку</a>
+    <a asp-page="/Index"><button type="button">Вернуться к списку</button></a>
 }
